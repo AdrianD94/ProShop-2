@@ -1,13 +1,15 @@
 import { Service } from "typedi";
-import products from "./products";
+import { Product } from "../../models/Product";
+import { User } from "../../models/User";
 
 @Service()
 export class ProductService {
-    public getProducts() {
-        return products;
+
+    async getProducts() {
+        return Product.find({});
     }
 
-    public getProductById(id: string) {
-        return products.find((product) => product._id === id);
+    async getProductById(id: string) {
+        return Product.findById(id);
     }
 }
