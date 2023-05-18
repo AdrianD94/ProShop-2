@@ -1,6 +1,5 @@
 import { Service } from "typedi";
 import { Product } from "../../models/Product";
-import { User } from "../../models/User";
 
 @Service()
 export class ProductService {

@@ -1,10 +1,10 @@
-import { Controller, Get, Param, Res } from 'routing-controllers';
+import { Get, JsonController, Param, Res } from 'routing-controllers';
 import { ProductService } from '../product/ProductService';
 import { Service } from 'typedi';
 import { Response } from 'express';
 
 @Service()
-@Controller('/api/products')
+@JsonController('/api/products')
 export class ProductController {
 
     constructor(private readonly productService: ProductService) { }

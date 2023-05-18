@@ -13,3 +13,58 @@ Content-Type: application/json
 {
 
 }
+
+###
+POST http://localhost:3001/api/users/login
+Content-Type: application/json
+
+{
+   "email": "adytestare@gmail.com",
+   "password":"test12345"
+}
+
+###
+POST http://localhost:3001/api/users/register
+Content-Type: application/json
+
+{
+    "email": "adytestare@gmail.com",
+    "password":"test12345",
+    "name": "adytzu"
+}
+
+###
+GET http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+
+}
+###
+GET http://localhost:3001/api/users/646345d2289ed94904b0b956
+Content-Type: application/json
+
+{
+
+}
+###
+POST http://localhost:3001/api/users/logout
+Content-Type: application/json
+
+{
+
+}
+###
+GET http://localhost:3001/api/users/profile
+Content-Type: application/json
+
+{
+
+}
+###
+PUT http://localhost:3001/api/users/profile
+Content-Type: application/json
+
+{
+    "name": "adrian"
+}

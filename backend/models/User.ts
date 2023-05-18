@@ -14,11 +14,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    isAdmin: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
+    roles: {
+        type: [String],
+        default: ["Regular"]
+    }
 }, { timestamps: true });
 
-export const User = mongoose.model('User' , userSchema);
+export const User = mongoose.model('User', userSchema);
