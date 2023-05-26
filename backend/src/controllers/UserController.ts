@@ -2,10 +2,10 @@ import { Authorized, Body, Controller, CookieParam, CurrentUser, Delete, Get, Js
 import { Service } from 'typedi';
 import { Request, Response } from 'express';
 import { UserService } from '../user/UserService';
-import { UserLoginDto } from './dtos/UserLoginDto';
-import { UserRegisterDto } from './dtos/UserRegisterDto';
+import { UserLoginDto } from './dtos/userDtos/UserLoginDto';
 import { User } from '../../models/User';
-import { UserUpdateDto } from './dtos/UserUpdateDto';
+import { UserRegisterDto } from './dtos/userDtos/UserRegisterDto';
+import { UserUpdateDto } from './dtos/userDtos/UserUpdateDto';
 
 @Service()
 @JsonController('/api/users')

@@ -11,7 +11,6 @@ export class ProductController {
 
     @Get('/')
     async getAll(@Res() response: Response) {
-        console.log('hit product')
         const products = await this.productService.getProducts();
         return response.json(products);
     }

@@ -10,6 +10,7 @@ import { Secret } from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import { UserService } from './user/UserService';
+import { OrderController } from './controllers/OrderController';
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ const PORT = process.env.PORT || 3001;
 let app = express();
 app.use(cookieParser())
 useExpressServer(app, {
-    controllers: [ProductController, UserController],
+    controllers: [ProductController, UserController, OrderController],
     authorizationChecker: async (action: Action, roles: string[]) => {
         const token = action.request.cookies.jwt;
         if (token) {

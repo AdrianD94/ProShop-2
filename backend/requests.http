@@ -68,3 +68,23 @@ Content-Type: application/json
 {
     "name": "adrian"
 }
+
+###
+POST http://localhost:3001/api/orders/
+Content-Type: application/json
+
+{
+    "name": "adrian"
+}
+
+###
+GET http://localhost:3001/api/orders/
+Content-Type: application/json
+
+###
+GET http://localhost:3001/api/orders/2
+Content-Type: application/json
+
+###
+GET http://localhost:3001/api/orders/mine
+Content-Type: application/json

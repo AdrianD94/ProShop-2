@@ -1,12 +1,12 @@
 import { Inject, Service } from "typedi";
-import { UserLoginDto } from "../controllers/dtos/UserLoginDto";
+import { UserLoginDto } from "../controllers/dtos/userDtos/UserLoginDto";
 import { User } from "../../models/User";
 import { BadRequestError, NotFoundError } from "routing-controllers";
 import { HashingService } from "../auth/HashingService";
-import { UserRegisterDto } from "../controllers/dtos/UserRegisterDto";
 import { TokenService } from "../auth/TokenService";
 import { Response } from "express";
-import { UserUpdateDto } from "../controllers/dtos/UserUpdateDto";
+import { UserRegisterDto } from "../controllers/dtos/userDtos/UserRegisterDto";
+import { UserUpdateDto } from "../controllers/dtos/userDtos/UserUpdateDto";
 
 @Service()
 export class UserService {
@@ -78,20 +78,20 @@ export class UserService {
     async getOne(id: string) {
         const user = await User.findById({ _id: id }).select('-password');
 
-        if(!user){
+        if (!user) {
             throw new NotFoundError();
         }
         return user;
     }
 
-    async updateProfile(id:string, body: UserUpdateDto){
+    async updateProfile(id: string, body: UserUpdateDto) {
         const user = await User.findById(id);
 
-        if (user){
+        if (user) {
             user.name = body.name || user.name;
             user.email = body.email || user.email
 
-            if(body.password){
+            if (body.password) {
                 user.password = body.password
             }
             const updatedUser = await user.save();
@@ -102,7 +102,7 @@ export class UserService {
                 email: updatedUser.email,
                 roles: updatedUser.roles,
             };
-        }else{
+        } else {
             throw new NotFoundError();
         }
     }
