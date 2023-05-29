@@ -17,7 +17,7 @@ export class OrderService {
     if (orderItems && orderItems.length === 0) {
       throw new BadRequestError("No Order Items");
     }
-
+    console.log(body);
     const order = new Order({
       orderItems: orderItems.map((x: any) => ({
         ...x,

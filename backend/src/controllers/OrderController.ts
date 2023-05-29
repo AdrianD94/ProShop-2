@@ -13,7 +13,8 @@ export class OrderController {
     @Authorized()
     @Post('/')
     async addOrderItems(@Res() response: Response, @Body() body: any, @CurrentUser() user: typeof User) {
-        return this.orderService.addOrderItems(body, JSON.parse(JSON.stringify(user))._id);
+        const res = await this.orderService.addOrderItems(body, JSON.parse(JSON.stringify(user))._id);
+        return response.json(res);
     }
 
     @Authorized()
@@ -22,10 +23,11 @@ export class OrderController {
         return this.orderService.getMyOrders(JSON.parse(JSON.stringify(user))._id);
     }
 
-    @Authorized('Admin')
+    @Authorized()
     @Get('/:id')
     async getOrderById(@Param('id') id: string, @Res() response: Response) {
-        return this.orderService.getOrderById(id);
+        const res = await this.orderService.getOrderById(id);
+        return response.json(res);
     }
 
     @Authorized()

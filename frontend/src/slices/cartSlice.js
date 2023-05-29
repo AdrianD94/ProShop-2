@@ -13,7 +13,6 @@ const cartSlice = createSlice({
       const item = action.payload;
 
       const existItem = state.cartItems.find((x) => x._id === item._id);
-
       if (existItem) {
         state.cartItems = state.cartItems.map((x) =>
           x._id === existItem._id ? item : x
@@ -21,6 +20,7 @@ const cartSlice = createSlice({
       } else {
         state.cartItems = [...state.cartItems, item];
       }
+      console.log(state.cartItems);
       return updateCart(state);
     },
     removeFromCart: (state, action) => {

@@ -30,7 +30,6 @@ const LoginScreen = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        console.log(email, password)
         try {
             const res = await login({ email, password }).unwrap();
             dispatch(setCredentials({ ...res }));
