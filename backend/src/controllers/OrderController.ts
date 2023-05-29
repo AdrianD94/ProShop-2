@@ -18,14 +18,14 @@ export class OrderController {
 
     @Authorized()
     @Get('/mine')
-    async getMyOrders(@Res() response: Response) {
-        return this.orderService.getMyOrders();
+    async getMyOrders(@Res() response: Response,  @CurrentUser() user: typeof User) {
+        return this.orderService.getMyOrders(JSON.parse(JSON.stringify(user))._id);
     }
 
     @Authorized('Admin')
     @Get('/:id')
     async getOrderById(@Param('id') id: string, @Res() response: Response) {
-        return this.orderService.getOrderById();
+        return this.orderService.getOrderById(id);
     }
 
     @Authorized()
